@@ -86,6 +86,8 @@ Now if you compare p1.c and [p2.c](files/p2/p2.c) there is a difference p2.c ret
 Let's look at our final example, of [hello.c](files/hello_world/hello.c) and the asm code [hello.s](files/hello_world/hello.s)
 This time after the function prologue we see a `LEA` function which stands for `Load Effective Address` basically computes the effective address of the second operand (the source operand) and stores it in the first operand (destination operand). So the address of "hello, world" if stored in `RDI` . RDI is one of the general purpose registers used for data copies. And after that `pts` is called, which is used under the `printf` function. So this is how some simple C code maps to asm code. 
 
+![i3](assets/i3.png)
+
 The 64-bit versions of the 'original' x86 registers are named:
 
 - rax - register a extended
