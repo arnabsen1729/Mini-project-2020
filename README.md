@@ -9,6 +9,8 @@ Circuit Synthesis as a Web Application – Web Application for synthesizing Impl
 
 **Background Study:** Digital Logic (Synchronous Sequential Circuit Design), Web Application Development (HTML, Javascript, PHP, XML)
 
+
+
 ### Subtasks to start with:
 **Common For Everyone**
 1. Make Apache web-server (with PHP support) work at your laptop/desktop computer (By
@@ -37,3 +39,8 @@ draws the circles in the browser.
 5. “Spline is a flexible strip used to produce a smooth curve through a designated
 set of points”. Choose some spline algorithm and draw a spline in the web-
 browser through the points marked by the clicks of the left mouse-button.
+
+### Completed Tasks
+- [subtask-1](https://arnabsen1729.github.io/Mini-project-2020/subtask-1/)
+- [subtask-2](https://arnabsen1729.github.io/Mini-project-2020/subtask-2/)
+- [subtask-5](https://arnabsen1729.github.io/Mini-project-2020/subtask-5/)
