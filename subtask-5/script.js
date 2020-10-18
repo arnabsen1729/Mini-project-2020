@@ -4,7 +4,6 @@ var elem = document.getElementById('board'),
     context = elem.getContext('2d'),
     elements = [];
 var arr = [];
-var a=0;
 console.log(context);
 // Add event listener for `click` events.
 
@@ -22,24 +21,19 @@ elem.addEventListener('click', function (event) {
 
     var x = event.pageX - elemLeft,
         y = event.pageY - elemTop;
-        arr.push(x);
-        arr.push(y);
-        if(arr.length>2){
+        arr.push({x:x,y:y});
           var c = document.getElementById("board");
           var ctx = c.getContext("2d");
           ctx.beginPath();
-          ctx.moveTo(arr[0], arr[1]);
-          for (a = 0; a < arr.length - 2; a+=2)
+          ctx.moveTo(arr[0].x, arr[0].y);
+          for (var a = 0; a < arr.length-1; a++)
           {
-              var xc = (arr[a] + arr[a+2]) / 2;
-              var yc = (arr[a+1] + arr[a+3]) / 2;
-              ctx.quadraticCurveTo(arr[a], arr[a+1], xc, yc);
+              var xc = (arr[a].x + arr[a+1].x) / 2;
+              var yc = (arr[a].y + arr[a+1].y) / 2;
+              ctx.quadraticCurveTo(arr[a].x, arr[a].y, xc, yc);
+
           }
-          // curve through the last two points
-          ctx.quadraticCurveTo(arr[a], arr[a+1], arr[a+2],arr[a+3]);
           ctx.stroke();
-          a=a+2;
-          }
     console.log('X-coord: ', x, '\nY-coord: ', y);
     // Collision detection between clicked offset and element.
     drawPoint(context, x, y, 10)
