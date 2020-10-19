@@ -43,4 +43,5 @@ browser through the points marked by the clicks of the left mouse-button.
 ### Completed Tasks
 - [subtask-1](https://arnabsen1729.github.io/Mini-project-2020/subtask-1/)
 - [subtask-2](https://arnabsen1729.github.io/Mini-project-2020/subtask-2/)
+- [subtask-3](https://arnabsen1729.github.io/Mini-project-2020/subtask-3/)
 - [subtask-5](https://arnabsen1729.github.io/Mini-project-2020/subtask-5/)
