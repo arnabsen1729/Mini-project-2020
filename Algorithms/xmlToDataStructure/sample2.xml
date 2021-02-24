@@ -1,0 +1,14 @@
+<stateDiagram>
+  <input>
+    <input-value>1</input-value>
+    <input-value>0</input-value>
+  </input>
+  <output>
+    <output-value>1</output-value>
+    <output-value>0</output-value>
+  </output>
+  <states>
+    <state-name>A</state-name>
+    <state-name>B</state-name>
+  </states>
+</stateDiagram>
