@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Subtask</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+    .main{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .toolBar{
+      display: flex;
+
+    }
+
+    .canvas{
+      width: 1000px;
+      height: 500px;
+      border:1px solid #000000;
+      margin-top: 30px;
+      position: relative;
+
+    }
+    .btn{
+    display: inline-block;
+    text-align: center;
+    border-radius: 2px;
+    line-height: 19px;
+    cursor: pointer;
+    margin-left: -1px;
+    padding: 4px 15px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    background-image: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
+    border: 1px solid #c6c6c6;
+    color: #000;
+    text-decoration: none;
+    font-family: sans-serif;
+    }
+
+    .btn:active {
+        background-color: #f6f6f6;
+        background-image: -webkit-linear-gradient(top,#f6f6f6,#f1f1f1);
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .is-pressed {
+      background: -webkit-linear-gradient(top,#eee,#e0e0e0);
+      border: 1px solid #d7d7d7;
+      box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.1);
+    }
+    .circle {
+      cursor: pointer;
+    }
+    .svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .path {
+      fill: none;
+      stroke: cornflowerblue;
+      stroke-width: 2;
+    }
+    </style>
+  </head>
+  <body>
+      <div class="main">
+        <div class="toolBar">
+          <div><button class="btn" id="1" onclick="handleClick(1)">select</button></div>
+          <div><button class="btn" id="2" onclick="handleClick(2)">state</button></div>
+          <div><button class="btn" id="3" onclick="handleClick(3)">connect</button></div>
+          <div><button class="btn" id="4" onclick="handleClick(4)">erase</button></div>
+          <div><button class="btn" id="5" onclick="handleClick(5)">Label</button></div>
+        </div>
+        <div id="can" class="canvas">
+            <svg class="svg" id="board">
+              <svg class="svg" id="board2"></svg>
+              <!-- <path id="path1" class="path" /> -->
+            </svg>
+        </div>
+        </div>
+  <script src="index.js"></script>
+  </body>
+</html>
