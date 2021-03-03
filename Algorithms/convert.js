@@ -150,8 +150,8 @@ function updateStates(data, stateMap) {
 }
 //
 
-function getDecimalValue(output, present_state) {
-    return parseInt(output + present_state, 2);
+function getDecimalValue(input, present_state) {
+    return parseInt(input + present_state, 2);
 }
 
 function getDFFValues(data) {
@@ -161,9 +161,9 @@ function getDFFValues(data) {
         data.transition.forEach((trans) => {
             if (trans.next_state.charAt(gateIndex) === '1') {
                 console.log(trans);
-                console.log(getDecimalValue(trans.output, trans.present_state));
+                console.log(getDecimalValue(trans.input, trans.present_state));
                 gateValues.push(
-                    getDecimalValue(trans.output, trans.present_state)
+                    getDecimalValue(trans.input, trans.present_state)
                 );
             }
         });
