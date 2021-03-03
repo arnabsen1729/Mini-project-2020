@@ -47,52 +47,52 @@
     </transitions>
     <state-diagram>
         <transition>
-            <present_state>00</present_state>
+            <present_state>A</present_state>
             <input>1</input>
             <output>1</output>
-            <next_state>00</next_state>
+            <next_state>A</next_state>
         </transition>
         <transition>
-            <present_state>00</present_state>
+            <present_state>A</present_state>
             <input>0</input>
             <output>0</output>
-            <next_state>01</next_state>
+            <next_state>B</next_state>
         </transition>
         <transition>
-            <present_state>01</present_state>
+            <present_state>B</present_state>
             <input>1</input>
             <output>0</output>
-            <next_state>11</next_state>
+            <next_state>D</next_state>
         </transition>
         <transition>
-            <present_state>01</present_state>
+            <present_state>B</present_state>
             <input>0</input>
             <output>1</output>
-            <next_state>10</next_state>
+            <next_state>C</next_state>
         </transition>
         <transition>
-            <present_state>11</present_state>
+            <present_state>D</present_state>
             <input>0</input>
             <output>0</output>
-            <next_state>11</next_state>
+            <next_state>D</next_state>
         </transition>
         <transition>
-            <present_state>11</present_state>
+            <present_state>D</present_state>
             <input>1</input>
             <output>1</output>
-            <next_state>10</next_state>
+            <next_state>C</next_state>
         </transition>
         <transition>
-            <present_state>10</present_state>
+            <present_state>C</present_state>
             <input>1</input>
             <output>0</output>
-            <next_state>01</next_state>
+            <next_state>B</next_state>
         </transition>
         <transition>
-            <present_state>10</present_state>
+            <present_state>C</present_state>
             <input>0</input>
             <output>1</output>
-            <next_state>00</next_state>
+            <next_state>A</next_state>
         </transition>
     </state-diagram>
 </DATA>
