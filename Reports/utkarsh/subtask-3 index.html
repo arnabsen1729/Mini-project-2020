@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)https://arnabsen1729.github.io/Mini-project-2020/subtask-3/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+#canvas{
+background-image:url("Penguins.jpg");
+border:1px solid red;}
+</style><script>
+window.onload=function(){
+var canvas=document.getElementById("canvas");
+canvas.addEventListener("mousedown",drawCircle,false);}
+function drawCircle(event){
+var canvas=document.getElementById("canvas");
+var ctx=canvas.getContext("2d");
+x=event.pageX;
+y=event.pageY;
+ctx.fillStyle="gold";
+ctx.beginPath();
+ctx.arc(x,y,50,-10,20*Math.PI);
+ctx.stroke();
+ctx.fill();}
+</script></head>
+
+
+<body>
+<canvas id="canvas" width="500" height="500">
+</canvas>
+
+
+
+
+
+<script>
+function readMouseMove(e){
+var result_x = document.getElementById('x_result');
+var result_y = document.getElementById('y_result');
+result_x.innerHTML = e.clientX;
+result_y.innerHTML = e.clientY;}
+document.onmousemove = readMouseMove;
+</script>
+
+</body></html>
