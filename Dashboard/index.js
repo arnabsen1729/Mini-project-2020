@@ -25,6 +25,10 @@
         var offset = (this).getBoundingClientRect();
         var y = offset.top;
         var x = offset.left;
+        if(count===5)
+        {
+          $("#can").append(`<input class="inputcircle" placeholder="A" style="font-size:25px;position:absolute;left:${x+20-258.79998779296875}px;top:${y+25-66.60000610351562}px;width:20px">`);
+        }
         if(count===3&&clicked===0){
               var ids="path"+paths;
               d3.select("#board2").append("path").attr("class","path").attr("id",ids)
@@ -117,3 +121,13 @@
           return path;
         }
     }
+
+    $(document).on("click","path",function(e){
+      e.stopPropagation();
+      if(count===5){
+      var len = (this).getTotalLength();
+      var points = (this).getPointAtLength(len/2);
+      console.log(points);
+      $("#can").append(`<input class="input" placeholder="0/0" style="position:absolute;left:${points.x-10}px;top:${points.y-10}px;width:20px">`);
+    }
+    });
