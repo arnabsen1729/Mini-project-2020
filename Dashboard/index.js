@@ -18,6 +18,22 @@
           elem2.classList.remove("is-pressed")
         }
       }
+      if(x===4){
+        var c = document.getElementById('can').childNodes;
+        var len = document.getElementById('can').childNodes.length;
+        for(var i=len-1;i>2;i--)
+        document.getElementById('can').removeChild(c[i]);
+
+        var s = document.getElementById('board').childNodes;
+        var slen = document.getElementById('board').childNodes.length;
+        for(var i=slen-1;i>2;i--)
+        document.getElementById('board').removeChild(s[i]);
+
+        var ss = document.getElementById('board2').childNodes;
+        var sslen = document.getElementById('board2').childNodes.length;
+        for(var i=sslen-1;i>=0;i--)
+        document.getElementById('board2').removeChild(ss[i]);
+      }
     }
 
       $(document).on("click","circle",function(e){
@@ -128,6 +144,6 @@
       var len = (this).getTotalLength();
       var points = (this).getPointAtLength(len/2);
       console.log(points);
-      $("#can").append(`<input class="input" placeholder="0/0" style="position:absolute;left:${points.x-10}px;top:${points.y-10}px;width:20px">`);
+      $("#can").append(`<input class="input" placeholder="00/00" style="position:absolute;left:${points.x-30}px;top:${points.y-10}px;width:35px">`);
     }
     });
