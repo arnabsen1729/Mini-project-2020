@@ -5,10 +5,9 @@
     <title>Subtask</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="plain-draggable.min.js"></script>
+    <script src="leader-line.min.js"></script>
     <style>
-    body{
-      background-color: grey;
-    }
     .main{
       display: flex;
       flex-direction: column;
@@ -16,17 +15,16 @@
     }
 
     .toolBar{
-      margin-top: 30px;
       display: flex;
 
     }
 
     .canvas{
-      width: 100%;
+      width: 1000px;
       height: 500px;
       border:1px solid #000000;
+      margin-top: 30px;
       position: relative;
-      background-color: white;
 
     }
     .btn{
@@ -43,8 +41,6 @@
     color: #000;
     text-decoration: none;
     font-family: sans-serif;
-    height: 60px;
-    width: 80px;
     }
 
     .btn:active {
@@ -85,19 +81,19 @@
   </head>
   <body>
       <div class="main">
+        <div class="toolBar">
+          <div><button class="btn" id="1" onclick="handleClick(1)">select</button></div>
+          <div><button class="btn" id="2" onclick="handleClick(2)">state</button></div>
+          <div><button class="btn" id="3" onclick="handleClick(3)">connect</button></div>
+          <div><button class="btn" id="4" onclick="handleClick(4)">erase</button></div>
+          <div><button class="btn" id="5" onclick="handleClick(5)">Label</button></div>
+        </div>
         <div id="can" class="canvas">
             <svg class="svg" id="board">
               <svg class="svg" id="board2"></svg>
             </svg>
         </div>
-        <div class="toolBar">
-          <div><button class="btn" id="1" onclick="handleClick(1)">Select</button></div>
-          <div><button class="btn" id="2" onclick="handleClick(2)">State</button></div>
-          <div><button class="btn" id="3" onclick="handleClick(3)">Connect</button></div>
-          <div><button class="btn" id="4" onclick="handleClick(4)">Erase</button></div>
-          <div><button class="btn" id="5" onclick="handleClick(5)">Label</button></div>
         </div>
-      </div>
-  <script src="index.js"></script>
+  <script src="index(testing).js"></script>
   </body>
 </html>

@@ -35,7 +35,8 @@
         document.getElementById('board2').removeChild(ss[i]);
       }
     }
-
+      var start;
+      var end;
       $(document).on("click","circle",function(e){
         e.stopPropagation();
         var offset = (this).getBoundingClientRect();
@@ -46,12 +47,17 @@
           $("#can").append(`<input class="inputcircle" placeholder="A" style="font-size:25px;position:absolute;left:${x+20-258.79998779296875}px;top:${y+25-66.60000610351562}px;width:20px">`);
         }
         if(count===3&&clicked===0){
-              var ids="path"+paths;
-              d3.select("#board2").append("path").attr("class","path").attr("id",ids)
+              start = (this);
 
         }
 
-        if(count===3){drawSpline(x+40,y+40,0)}
+        if(count===3&&clicked===1){
+          end=(this);
+          var line = new LeaderLine(start,end);
+          line.position();
+
+          lines.push(line);
+        }
         if(count===3)
         {
           if(clicked===0){
@@ -81,61 +87,28 @@
           }
       }, false);
 
+      var lines= [];
+      function fixLine() {
+        for(var i=0;i<lines.length;i++)
+        lines[i].position();
 
+  }
     function drawCircle(x,y,radius)
     {
-      d3.select("#board").append("circle").attr("class","circle").attr("cx",x).attr("cy",y).attr("r",40).attr("stroke","black").attr("stroke-width",2).style("fill","white")
+      d3.select("#board").append("circle").attr("class","state").attr("cx",x).attr("cy",y).attr("r",40).attr("stroke","black").attr("stroke-width",2).style("fill","white")
     }
 
+    var circleCount=0;
     function drawSpline(x,y,k)
     {
-      if(k)
-      {
-        d3.select("#board").append("circle").attr("cx",x).attr("cy",y).attr("r",3).attr("stroke","black").attr("stroke-width",2).style("fill","white")
-      }
-      var canvas = document.getElementById('board');
-      points.push(x);
-      points.push(y);
-
-        var tension = 1.2;
-        var ids = "path"+paths;
-        var path = document.getElementById(ids);
-        path.setAttribute("d", solve(points, tension));
-
-        function solve(data, k) {
-
-          if (k == null) k = 1;
-
-          var size = data.length;
-          var last = size - 4;
-
-          var path = "M" + [data[0], data[1]];
-
-          for (var i = 0; i < size - 2; i +=2) {
-
-            var x0 = i ? data[i - 2] : data[0];
-            var y0 = i ? data[i - 1] : data[1];
-
-            var x1 = data[i + 0];
-            var y1 = data[i + 1];
-
-            var x2 = data[i + 2];
-            var y2 = data[i + 3];
-
-            var x3 = i !== last ? data[i + 4] : x2;
-            var y3 = i !== last ? data[i + 5] : y2;
-
-            var cp1x = x1 + (x2 - x0) / 6 * k;
-            var cp1y = y1 + (y2 - y0) / 6 * k;
-
-            var cp2x = x2 - (x3 - x1) / 6 * k;
-            var cp2y = y2 - (y3 - y1) / 6 * k;
-
-            path += "C" + [cp1x, cp1y, cp2x, cp2y, x2, y2];
-          }
-
-          return path;
-        }
+        d3.select("#board").append("circle").attr("class","circle").attr("cx",x).attr("cy",y).attr("r",3).attr("stroke","black").attr("stroke-width",2).style("fill","white")
+        new PlainDraggable(document.getElementsByClassName('circle')[circleCount],{onMove:fixLine});
+        end = document.getElementsByClassName('circle')[circleCount];
+        var line = new LeaderLine(start,end);
+        line.position();
+        start = document.getElementsByClassName('circle')[circleCount];
+        circleCount++;
+        lines.push(line);
     }
 
     $(document).on("click","path",function(e){
